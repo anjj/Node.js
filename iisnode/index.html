@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"LENOVO-PC-1096-stderr-1391098055249.txt","computername":"LENOVO-PC","pid":1096,"type":"stderr","created":1391098055249},{"file":"LENOVO-PC-1096-stdout-1391098055243.txt","computername":"LENOVO-PC","pid":1096,"type":"stdout","created":1391098055243},{"file":"LENOVO-PC-1748-stderr-1391098061300.txt","computername":"LENOVO-PC","pid":1748,"type":"stderr","created":1391098061300},{"file":"LENOVO-PC-1748-stdout-1391098061295.txt","computername":"LENOVO-PC","pid":1748,"type":"stdout","created":1391098061295},{"file":"LENOVO-PC-1844-stderr-1391098000751.txt","computername":"LENOVO-PC","pid":1844,"type":"stderr","created":1391098000751},{"file":"LENOVO-PC-1844-stdout-1391098000746.txt","computername":"LENOVO-PC","pid":1844,"type":"stdout","created":1391098000746},{"file":"LENOVO-PC-1972-stderr-1391098049536.txt","computername":"LENOVO-PC","pid":1972,"type":"stderr","created":1391098049536},{"file":"LENOVO-PC-1972-stdout-1391098049531.txt","computername":"LENOVO-PC","pid":1972,"type":"stdout","created":1391098049531},{"file":"LENOVO-PC-2096-stderr-1391098042307.txt","computername":"LENOVO-PC","pid":2096,"type":"stderr","created":1391098042307},{"file":"LENOVO-PC-2096-stdout-1391098042302.txt","computername":"LENOVO-PC","pid":2096,"type":"stdout","created":1391098042302},{"file":"LENOVO-PC-2812-stderr-1391099195434.txt","computername":"LENOVO-PC","pid":2812,"type":"stderr","created":1391099195434},{"file":"LENOVO-PC-2812-stdout-1391099195429.txt","computername":"LENOVO-PC","pid":2812,"type":"stdout","created":1391099195429},{"file":"LENOVO-PC-3064-stderr-1391100525897.txt","computername":"LENOVO-PC","pid":3064,"type":"stderr","created":1391100525897},{"file":"LENOVO-PC-3064-stdout-1391100525890.txt","computername":"LENOVO-PC","pid":3064,"type":"stdout","created":1391100525890},{"file":"LENOVO-PC-3172-stderr-1391097992998.txt","computername":"LENOVO-PC","pid":3172,"type":"stderr","created":1391097992998},{"file":"LENOVO-PC-3172-stdout-1391097992993.txt","computername":"LENOVO-PC","pid":3172,"type":"stdout","created":1391097992993},{"file":"LENOVO-PC-3856-stderr-1391098003496.txt","computername":"LENOVO-PC","pid":3856,"type":"stderr","created":1391098003496},{"file":"LENOVO-PC-3856-stdout-1391098003489.txt","computername":"LENOVO-PC","pid":3856,"type":"stdout","created":1391098003489},{"file":"LENOVO-PC-4376-stderr-1391098056156.txt","computername":"LENOVO-PC","pid":4376,"type":"stderr","created":1391098056156},{"file":"LENOVO-PC-4376-stdout-1391098056151.txt","computername":"LENOVO-PC","pid":4376,"type":"stdout","created":1391098056151},{"file":"LENOVO-PC-688-stderr-1391098105673.txt","computername":"LENOVO-PC","pid":688,"type":"stderr","created":1391098105673},{"file":"LENOVO-PC-688-stdout-1391098105668.txt","computername":"LENOVO-PC","pid":688,"type":"stdout","created":1391098105668}];
+        var lastUpdated = 1391100526311;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>

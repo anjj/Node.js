@@ -1,0 +1,16 @@
+Failed to load c++ bson extension, using pure JS version
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Application has thrown an uncaught exception and is terminated:
+Error: listen EACCES
+    at errnoException (net.js:770:11)
+    at Server._listen2 (net.js:893:19)
+    at listen (net.js:937:10)
+    at Server.listen (net.js:986:5)
+    at Function.app.listen (C:\Users\Andres\Documents\My Web Sites\Wines\node_modules\express\lib\application.js:533:24)
+    at Object.<anonymous> (C:\Users\Andres\Documents\My Web Sites\Wines\server.js:17:5)
+    at Module._compile (module.js:449:26)
+    at Object.Module._extensions..js (module.js:467:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)

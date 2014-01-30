@@ -1,0 +1,38 @@
+========================================================================================
+=  Please ensure that you set the default write concern for the database by setting    =
+=   one of the options                                                                 =
+=                                                                                      =
+=     w: (value of > -1 or the string 'majority'), where < 1 means                     =
+=        no write acknowledgement                                                       =
+=     journal: true/false, wait for flush to journal before acknowledgement             =
+=     fsync: true/false, wait for flush to file system before acknowledgement           =
+=                                                                                      =
+=  For backward compatibility safe is still supported and                              =
+=   allows values of [true | false | {j:true} | {w:n, wtimeout:n} | {fsync:true}]      =
+=   the default value is false which means the driver receives does not                =
+=   return the information of the success/error of the insert/update/remove            =
+=                                                                                      =
+=   ex: new Db(new Server('localhost', 27017), {safe:false})                           =
+=                                                                                      =
+=   http://www.mongodb.org/display/DOCS/getLastError+Command                           =
+=                                                                                      =
+=  The default of no acknowledgement will change in the very near future                =
+=                                                                                      =
+=  This message will disappear when the default safe is set on the driver Db           =
+========================================================================================
+Listening on port 3000...
+Connected to "winedb" database
+[90mGET /wines [32m200 [90m4ms - 567b[0m
+[90mGET /wines [36m304 [90m2ms[0m
+Retriving wine: 5069b47aa892630aae000007
+[90mGET /wines/5069b47aa892630aae000007 [32m200 [90m6ms - 0b[0m
+Retriving wine: 5069b47aa892630aae000007
+[90mGET /wines/5069b47aa892630aae000007 [32m200 [90m4ms - 0b[0m
+Retriving wine: 5069b47aa892630aae000007
+[90mGET /wines/5069b47aa892630aae000007 [32m200 [90m5ms - 0b[0m
+Retriving wine: 5069b47aa892630aae000007
+[90mGET /wines/5069b47aa892630aae000007 [32m200 [90m3ms - 0b[0m
+Retriving wine: 52ea76982ade94b013a8ecb3
+[90mGET /wines/52ea76982ade94b013a8ecb3 [36m304 [90m5ms[0m
+[90mGET /tester [33m404 [90m1ms[0m
+[90mGET / [33m404 [90m1ms[0m
